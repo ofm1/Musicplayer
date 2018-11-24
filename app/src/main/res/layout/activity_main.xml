@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -19,8 +20,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="start|top"
             android:layout_weight="1"
+            android:background="@drawable/browse"
             android:drawablePadding="24dp"
-            android:text="Browse" />
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/randomSongButton"
@@ -30,8 +32,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="start|top"
             android:layout_weight="1"
+            android:background="@drawable/random"
             android:drawablePadding="24dp"
-            android:text="Random Song" />
+            android:textColor="@android:color/white" />
 
 
     </LinearLayout>
@@ -50,8 +53,10 @@
             android:layout_height="match_parent"
             android:layout_gravity="start|top"
             android:layout_weight="1"
+            android:background="@drawable/favorite"
             android:drawablePadding="24dp"
-            android:text="Favorite" />
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/BattleButton"
@@ -61,8 +66,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="start|top"
             android:layout_weight="1"
+            android:background="@drawable/battle"
             android:drawablePadding="24dp"
-            android:text="Battle" />
+            android:textColor="@android:color/white" />
 
 
     </LinearLayout>
@@ -82,8 +88,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="start|top"
             android:layout_weight="1"
+            android:background="@drawable/vote"
             android:drawablePadding="24dp"
-            android:text="Vote" />
+            android:textColor="@android:color/white" />
 
 
         <Button
@@ -94,8 +101,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="start|top"
             android:layout_weight="1"
+            android:background="@drawable/yoursongs"
             android:drawablePadding="24dp"
-            android:text="Your Songs" />
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
         <LinearLayout
@@ -105,28 +113,30 @@
     android:layout_weight="1"
     android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/topScoreButton"
-        style="?android:attr/buttonBarButtonStyle"
+            <Button
+                android:id="@+id/topScoreButton"
+                style="?android:attr/buttonBarButtonStyle"
 
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start|top"
-        android:layout_weight="1"
-        android:drawablePadding="24dp"
-        android:text="Top scores" />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start|top"
+                android:layout_weight="1"
+                android:background="@drawable/topscores"
+                android:drawablePadding="24dp"
+                android:textColor="@android:color/white" />
 
 
-    <Button
-        android:id="@+id/YourAccountButton"
-        style="?android:attr/buttonBarButtonStyle"
+            <Button
+                android:id="@+id/YourAccountButton"
+                style="?android:attr/buttonBarButtonStyle"
 
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start|top"
-        android:layout_weight="1"
-        android:drawablePadding="24dp"
-        android:text="Your Account" />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start|top"
+                android:layout_weight="1"
+                android:background="@drawable/youraccount"
+                android:drawablePadding="24dp"
+                android:textColor="@android:color/white" />
 
 </LinearLayout>
 </LinearLayout>
