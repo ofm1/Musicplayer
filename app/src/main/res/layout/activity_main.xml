@@ -103,6 +103,7 @@
             android:layout_weight="1"
             android:background="@drawable/yoursongs"
             android:drawablePadding="24dp"
+            android:onClick="openYourSongs"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
