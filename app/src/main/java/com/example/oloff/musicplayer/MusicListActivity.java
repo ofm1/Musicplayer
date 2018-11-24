@@ -36,6 +36,10 @@ public class MusicListActivity extends AppCompatActivity {
         MediaPlayer.create(super.getApplicationContext(), R.raw.kaleo);
         musicList.add(new Music(song,"Blanck","Rock","Kaleo1","Gaur1"));
         musicList.add(new Music(song,"Blanck","Rock","Kaleo2","Gaur2"));
+        musicList.add(new Music(song,"Blanck","Rock","Kaleo1","Gaur1"));
+        musicList.add(new Music(song,"Blanck","Rock","Kaleo2","Gaur2"));
+        musicList.add(new Music(song,"Blanck","Rock","Kaleo1","Gaur1"));
+        musicList.add(new Music(song,"Blanck","Rock","Kaleo2","Gaur2"));
 
         //initialize the Adapter
         listItem = new myAdapter(this,  musicList);

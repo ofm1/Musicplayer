@@ -4,12 +4,35 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:orientation="horizontal"
-    android:gravity="center">
+    android:orientation="vertical"
+    android:background="#ff00a2e8"
+    android:gravity="top">
+    <ImageView
+        android:layout_margin="10px"
+        android:layout_height="20px"
+        android:layout_weight=".20"
+        android:padding="0px"
+        android:layout_width="fill_parent"
+        android:fontFamily="Roboto-Black"
+        android:gravity="center"
+        android:src="@drawable/myhavoritetittle"
+        >
+    </ImageView>
     <ListView
         android:id="@+id/list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:layout_weight=".60"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
+        android:padding="10px"
+        android:paddingTop="30px"
+        android:background="@drawable/list_with_border">
 
     </ListView>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:layout_weight=".40">
+    </TextView>
 </LinearLayout>
