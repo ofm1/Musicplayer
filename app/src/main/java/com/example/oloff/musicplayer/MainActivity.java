@@ -1,6 +1,7 @@
 package com.example.oloff.musicplayer;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer song;
 
     private TextView mTextMessage;
+
+    boolean playing = false;
 
     private Button mPlayButton;
 
@@ -37,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
+                    return true;
+                case R.id.navigation_playpause:
+                    // mTextMessage.setText(R.string.title_notifications);
+
+                    if(playing){
+                        song.pause();
+                        item.setIcon(android.R.drawable.ic_media_play);
+                        playing = false;
+                    } else {
+                        song.start();
+                        item.setIcon(android.R.drawable.ic_media_pause);
+                        playing = true;
+                    }
                     return true;
             }
             return false;
@@ -59,7 +75,14 @@ public class MainActivity extends AppCompatActivity {
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                song.start();
+                if(playing){
+                    song.pause();
+                    playing = false;
+                } else {
+                    song.start();
+                    playing = true;
+                }
+
             }
         });
 
