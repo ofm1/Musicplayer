@@ -18,7 +18,29 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
-    private Button mPlayButton;
+    // button for browse
+    private Button mBrowse;
+
+    // button for a random song
+    private Button mRandom;
+
+    // button for favorite songs
+    private Button mFavorite;
+
+    // button for battle
+    private Button mBattle;
+
+    // button to vote
+    private Button mVote;
+
+    // button to your songs
+    private Button mYourSongs;
+
+    // button for top scores
+    private Button mTopScore;
+
+    // button for your account
+    private Button mYourAccount;
 
 
     private Music[] mMusicBank;
@@ -48,25 +70,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        song = MediaPlayer.create(super.getApplicationContext(), R.raw.kaleo);
-
-        mMusicBank = new Music[]{
-                new Music(song,"indie","rock","Vor í vaglaskógi", "kaleo")};
 
 
-        mPlayButton = (Button) findViewById(R.id.playButton);
-
-        mPlayButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                song.start();
-            }
-        });
-
-
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
 }
