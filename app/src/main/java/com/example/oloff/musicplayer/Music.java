@@ -18,6 +18,8 @@ class Music {
     private String name;
     // name of the band/singer
     private String author;
+    // like count, init is 0
+    private int like = 0;
 
     public Music(MediaPlayer song , String section, String subclass, String name, String author) {
        this.song = song;
@@ -49,6 +51,23 @@ class Music {
 
     public void setSublcalss(String sublcalss) {
         this.sublcalss = sublcalss;
+    }
+
+    //to get the song's name
+    public String getName(){
+        return this.name;
+    }
+    //to get the song's author
+    public String getAuthor(){
+        return this.author;
+    }
+    //to add a like to music
+    public void addLike(){
+        this.like += 1;
+    }
+    // to get the like count for this music
+    public int getLike(){
+        return this.like;
     }
 }
 
