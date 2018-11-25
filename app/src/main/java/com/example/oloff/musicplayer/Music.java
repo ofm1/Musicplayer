@@ -32,6 +32,16 @@ class Music {
         this.author = author;
     }
 
+    public Music(int id, int song , String section, String subclass, String name, String author, int like) {
+        this.id = id;
+        this.song = song;
+        this.section = section;
+        this.sublcalss = subclass;
+        this.name = name;
+        this.author = author;
+        this.like = like;
+    }
+
     public int getSong() {
         return song;
     }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants">
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -12,22 +13,39 @@
         android:id="@+id/rank"
         android:textColor="#ffffffff"
         />
+
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="hahaha"
-        android:gravity="center"
-        android:textSize="20sp"
         android:id="@+id/name"
-        android:textColor="#ffffffff"
-        />
-    <TextView
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="right"
         android:text="hahaha"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:id="@+id/author"
         android:textColor="#ffffffff"
-        />
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="hahaha"
+        android:textColor="#ffffffff"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/like"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="hahaha"
+        android:textColor="#ffffffff"
+        android:textSize="20sp" />
+    <ImageButton
+        android:id="@+id/likeheart"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/unlikeheart"
+        android:text="hahaha"
+        android:focusableInTouchMode="true"/>
 </LinearLayout>
