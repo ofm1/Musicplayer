@@ -72,12 +72,25 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openBrowseScreen(View view) {
+        Intent intent = new Intent(this, BrowseActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mBrowse = (Button) findViewById(R.id.browseButton);
 
+        mBrowse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(MainActivity.this, BrowseActivity.class));
+            }
+        });
 
     }
 

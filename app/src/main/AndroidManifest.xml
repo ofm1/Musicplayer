@@ -27,6 +27,13 @@
                 <action android:name="android.intent.action.SEND" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BrowseActivity"
+            android:parentActivityName=".BrowseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
