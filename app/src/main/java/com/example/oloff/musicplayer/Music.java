@@ -8,8 +8,10 @@ import android.media.MediaPlayer;
 
 class Music {
 
+    //id
+    private int id;
     // the song
-    private MediaPlayer song;
+    private int song;
     // the section the song belongs to
     private String section;
     // the subclass the song belongs to
@@ -21,19 +23,30 @@ class Music {
     // like count, init is 0
     private int like = 0;
 
-    public Music(MediaPlayer song , String section, String subclass, String name, String author) {
-       this.song = song;
-       this.section = section;
-       this.sublcalss = subclass;
-       this.name = name;
-       this.author = author;
+    public Music(int id, int song , String section, String subclass, String name, String author) {
+        this.id = id;
+        this.song = song;
+        this.section = section;
+        this.sublcalss = subclass;
+        this.name = name;
+        this.author = author;
     }
 
-    public MediaPlayer getSong() {
+    public Music(int id, int song , String section, String subclass, String name, String author, int like) {
+        this.id = id;
+        this.song = song;
+        this.section = section;
+        this.sublcalss = subclass;
+        this.name = name;
+        this.author = author;
+        this.like = like;
+    }
+
+    public int getSong() {
         return song;
     }
 
-    public void setSong(MediaPlayer song) {
+    public void setSong(int song) {
         this.song = song;
     }
 
@@ -68,6 +81,9 @@ class Music {
     // to get the like count for this music
     public int getLike(){
         return this.like;
+    }
+    public int getId(){
+        return this.id;
     }
 }
 

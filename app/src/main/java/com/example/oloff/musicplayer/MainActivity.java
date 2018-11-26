@@ -71,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MusicListActivity.class);
         startActivity(intent);
     }
+    
+    public void openYourFavorite(View view) {
+        Intent intent = new Intent(this, MyFavoriteListActivity.class);
+        startActivity(intent);
+    }
 
     public void openBrowseScreen(View view) {
         Intent intent = new Intent(this, BrowseActivity.class);
