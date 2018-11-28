@@ -61,8 +61,7 @@ public class MusicListActivity extends AppCompatActivity {
 
         setContentView(R.layout.music_activity);
         context = this.getApplicationContext();
-
-        musicList=MusicDB.getInstance().allMusics;
+        loadList();
         final ArrayList<Music> lists = musicList;
         //initialize the Adapter
         listItem = new MusicListAdapter(this,  musicList);
@@ -134,7 +133,7 @@ public class MusicListActivity extends AppCompatActivity {
             if(player!=null)player.release();
 
             player = new MediaPlayer();
-            Music currentSong = musicList.get(MusicDB.getInstance().songPlaying);
+            Music currentSong = musicList.get(checkIndexInSongList(MusicDB.getInstance().songPlaying));
             player = MediaPlayer.create(context,currentSong.getSong());
             //player.prepare();
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -163,5 +162,33 @@ public class MusicListActivity extends AppCompatActivity {
             playMusic();
         }
         freshList();
+    }
+    public void loadList(){
+        String genre = MusicDB.getInstance().genre;
+        String subGenre = MusicDB.getInstance().subGenre;
+        if(genre=="" && subGenre==""){
+            musicList=MusicDB.getInstance().allMusics;
+        } else if (subGenre==""){
+            if(genre=="myFavorite") {
+                musicList = MusicDB.getInstance().getMyFavorite();
+            } else if(genre == "random") {
+                musicList = MusicDB.getInstance().getRandom();
+            } else {
+                musicList = MusicDB.getInstance().getBySection(genre);
+            }
+        } else {
+            musicList = MusicDB.getInstance().getBySectionAndSubClass(genre, subGenre);
+        }
+    }
+    public int checkIndexInSongList(int id){
+        int index = -1;
+        for(int i =0; i<musicList.size();i++){
+            Music temp = musicList.get(i);
+            if(temp.getId()==id){
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 }

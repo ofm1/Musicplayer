@@ -69,11 +69,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void openYourSongs(View view) {
         Intent intent = new Intent(this, MusicListActivity.class);
+        MusicDB.getInstance().setGenre("");
+        MusicDB.getInstance().setSubGenre("");
         startActivity(intent);
     }
     
     public void openYourFavorite(View view) {
-        Intent intent = new Intent(this, MyFavoriteListActivity.class);
+        MusicDB.getInstance().setGenre("myFavorite");
+        MusicDB.getInstance().setSubGenre("");
+        Intent intent = new Intent(this, MusicListActivity.class);
         startActivity(intent);
     }
 
