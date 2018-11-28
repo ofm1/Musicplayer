@@ -7,6 +7,8 @@
     android:orientation="vertical"
     android:background="#ff00a2e8"
     android:gravity="top">
+
+    <!--
     <ImageView
         android:layout_margin="10px"
         android:layout_height="20px"
@@ -18,21 +20,45 @@
         android:src="@drawable/myhavoritetittle"
         >
     </ImageView>
+    -->
     <ListView
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
         android:layout_height="100px"
-        android:layout_weight=".60"
+        android:layout_weight="1.0"
         android:layout_marginLeft="10px"
         android:layout_marginRight="10px"
-        android:padding="10px"
-        android:paddingTop="30px"
+        android:layout_marginTop="30sp"
         android:background="@drawable/list_with_border">
-
     </ListView>
-    <TextView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="100px"
-        android:layout_weight=".40">
-    </TextView>
+        android:layout_weight=".20"
+        android:layout_marginTop="10sp">
+        <ImageButton
+            android:layout_width="100sp"
+            android:layout_height="fill_parent"
+            android:layout_weight=".30"
+            android:id="@+id/previousSong"
+            android:background="@drawable/previous">
+
+        </ImageButton>
+        <ImageButton
+            android:layout_width="100sp"
+            android:layout_height="fill_parent"
+            android:layout_weight=".30"
+            android:id="@+id/pauseSong"
+            android:background="@drawable/play">
+
+        </ImageButton>
+        <ImageButton
+            android:layout_width="100sp"
+            android:layout_height="fill_parent"
+            android:layout_weight=".30"
+            android:id="@+id/nextSong"
+            android:background="@drawable/next">
+
+        </ImageButton>
+    </LinearLayout>
 </LinearLayout>

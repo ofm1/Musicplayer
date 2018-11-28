@@ -55,8 +55,16 @@ public class MusicListAdapter extends ArrayAdapter<Music> {
             likeheart.setBackgroundResource(R.drawable.likeheart);
         }
         //rank.setText(""+music.getId());
-        name.setText(music.getName());
-        author.setText(music.getAuthor());
+        String songName = music.getName();
+        if (songName.length()>20){
+            songName=songName.substring(0, 19)+"...";
+        }
+        String authorName = music.getAuthor();
+        if (authorName.length()>20){
+            authorName=authorName.substring(0, 19)+"...";
+        }
+        name.setText(songName);
+        author.setText(authorName);
         like.setText(""+music.getLike());
         likeheart.setOnClickListener(new View.OnClickListener() {
 

@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.media.MediaPlayer;
@@ -81,23 +82,28 @@ public class MusicListActivity extends AppCompatActivity {
                 }
                 MusicDB.getInstance().setSongPlaying(item.getId());
                 freshList();//refresh list
+                ImageButton pause = (ImageButton) findViewById(R.id.pauseSong);
                 //pause resume and nextSong
                 if(!isPlaying()){
+                    pause.setBackgroundResource(R.drawable.pause);
                     playMusic();
                 } else {
                     if(songChange){
                         playMusic();
                         songPaucePoint=0;
+                        pause.setBackgroundResource(R.drawable.pause);
                     } else {
                         if(!isPaused()){
                             player.pause();
                             songPaucePoint=player.getCurrentPosition();
                             pauseSong();
+                            pause.setBackgroundResource(R.drawable.play);
                         } else {
                             player.seekTo(songPaucePoint);
                             player.start();
                             resumeSong();
                             songPaucePoint=0;
+                            pause.setBackgroundResource(R.drawable.pause);
                         }
                     }
                 }
@@ -106,6 +112,31 @@ public class MusicListActivity extends AppCompatActivity {
         listView.setFocusable(true);
         listView.setFocusableInTouchMode(true);
         listView.setClickable(true);
+
+        final ImageButton nextSong = (ImageButton) findViewById(R.id.nextSong);
+        final ImageButton previousSong = (ImageButton) findViewById(R.id.previousSong);
+        final ImageButton pauseSong = (ImageButton) findViewById(R.id.pauseSong);
+
+        pauseSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pauseSongButton();
+            }
+        });
+        nextSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pauseSong.setBackgroundResource(R.drawable.pause);
+                nextSong();
+            }
+        });
+        previousSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pauseSong.setBackgroundResource(R.drawable.pause);
+                preSong();
+            }
+        });
     }
 
     private void freshList(){
@@ -151,7 +182,12 @@ public class MusicListActivity extends AppCompatActivity {
         }
     }
     public void nextSong() {
+        int next = checkIndexInSongList(MusicDB.getInstance().songPlaying)+1;
         int numOfSong = musicList.size() ;
+        if(next < numOfSong){
+            MusicDB.getInstance().songPlaying = musicList.get(next).getId();
+            playMusic();
+        }/*
         if (MusicDB.getInstance().songPlaying < numOfSong - 1) {
             MusicDB.getInstance().songPlaying++;
             Log.d("my_log", "position = "+MusicDB.getInstance().songPlaying);
@@ -159,6 +195,32 @@ public class MusicListActivity extends AppCompatActivity {
         } else {
             MusicDB.getInstance().songPlaying = 0;
             Log.d("my_log", "position = "+MusicDB.getInstance().songPlaying);
+            playMusic();
+        }*/
+        else {
+            MusicDB.getInstance().songPlaying = musicList.get(0).getId();
+            playMusic();
+        }
+        freshList();
+    }
+    public void preSong() {
+        int next = checkIndexInSongList(MusicDB.getInstance().songPlaying)-1;
+        int numOfSong = musicList.size() ;
+        if(next >= 0){
+            MusicDB.getInstance().songPlaying = musicList.get(next).getId();
+            playMusic();
+        }/*
+        if (MusicDB.getInstance().songPlaying < numOfSong - 1) {
+            MusicDB.getInstance().songPlaying++;
+            Log.d("my_log", "position = "+MusicDB.getInstance().songPlaying);
+            playMusic();
+        } else {
+            MusicDB.getInstance().songPlaying = 0;
+            Log.d("my_log", "position = "+MusicDB.getInstance().songPlaying);
+            playMusic();
+        }*/
+        else {
+            MusicDB.getInstance().songPlaying = musicList.get(numOfSong-1).getId();
             playMusic();
         }
         freshList();
@@ -168,16 +230,21 @@ public class MusicListActivity extends AppCompatActivity {
         String subGenre = MusicDB.getInstance().subGenre;
         if(genre=="" && subGenre==""){
             musicList=MusicDB.getInstance().allMusics;
+            setTitle("All Songs");
         } else if (subGenre==""){
             if(genre=="myFavorite") {
+                setTitle("Favorite Songs");
                 musicList = MusicDB.getInstance().getMyFavorite();
             } else if(genre == "random") {
                 musicList = MusicDB.getInstance().getRandom();
+                setTitle("Random Songs");
             } else {
                 musicList = MusicDB.getInstance().getBySection(genre);
+                setTitle(genre+" Songs");
             }
         } else {
             musicList = MusicDB.getInstance().getBySectionAndSubClass(genre, subGenre);
+            setTitle(genre+"-"+subGenre+" Songs");
         }
     }
     public int checkIndexInSongList(int id){
@@ -190,5 +257,22 @@ public class MusicListActivity extends AppCompatActivity {
             }
         }
         return index;
+    }
+    public void pauseSongButton(){
+        if(isPlaying()){
+            ImageButton pause = (ImageButton) findViewById(R.id.pauseSong);
+            if(!isPaused()){
+                player.pause();
+                songPaucePoint=player.getCurrentPosition();
+                pauseSong();
+                pause.setBackgroundResource(R.drawable.play);
+            } else {
+                player.seekTo(songPaucePoint);
+                player.start();
+                resumeSong();
+                songPaucePoint = 0;
+                pause.setBackgroundResource(R.drawable.pause);
+            }
+        }
     }
 }
