@@ -32,29 +32,29 @@ public class MusicListAdapter extends ArrayAdapter<Music> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.music_list_item_view, parent, false);
         }
         final LinearLayout item = (LinearLayout) convertView.findViewById(R.id.item);
-        final TextView rank = (TextView) convertView.findViewById(R.id.rank);
+        //final TextView rank = (TextView) convertView.findViewById(R.id.rank);
         final TextView name = (TextView) convertView.findViewById(R.id.name);
         final TextView author = (TextView) convertView.findViewById(R.id.author);
         final TextView like = (TextView) convertView.findViewById(R.id.like);
         final ImageButton likeheart = (ImageButton) convertView.findViewById(R.id.likeheart);
 
         if(songPlaying==music.getId()){
-            rank.setTypeface(rank.getTypeface(),Typeface.BOLD);
-            name.setTypeface(rank.getTypeface(),Typeface.BOLD);
-            author.setTypeface(rank.getTypeface(),Typeface.BOLD);
-            like.setTypeface(rank.getTypeface(),Typeface.BOLD);
+            //rank.setTypeface(rank.getTypeface(),Typeface.BOLD);
+            name.setTypeface(name.getTypeface(),Typeface.BOLD);
+            author.setTypeface(author.getTypeface(),Typeface.BOLD);
+            like.setTypeface(like.getTypeface(),Typeface.BOLD);
             item.setBackgroundColor(Color.parseColor("#4fff0000"));
         } else {
-            rank.setTypeface(rank.getTypeface(),Typeface.NORMAL);
-            name.setTypeface(rank.getTypeface(),Typeface.NORMAL);
-            author.setTypeface(rank.getTypeface(),Typeface.NORMAL);
-            like.setTypeface(rank.getTypeface(),Typeface.NORMAL);
+            //rank.setTypeface(rank.getTypeface(),Typeface.NORMAL);
+            name.setTypeface(name.getTypeface(),Typeface.NORMAL);
+            author.setTypeface(author.getTypeface(),Typeface.NORMAL);
+            like.setTypeface(like.getTypeface(),Typeface.NORMAL);
             item.setBackgroundColor(Color.parseColor("#00000000"));
         }
         if(MusicDB.getInstance().isMyFavorite(music.getId())){
             likeheart.setBackgroundResource(R.drawable.likeheart);
         }
-        rank.setText(""+music.getId());
+        //rank.setText(""+music.getId());
         name.setText(music.getName());
         author.setText(music.getAuthor());
         like.setText(""+music.getLike());
