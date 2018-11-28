@@ -10,6 +10,8 @@ public class MusicDB {
     public ArrayList<Music> allMusics = new ArrayList<Music> ();
     public ArrayList<Integer> myFavorite = new ArrayList<Integer>();
     public int songPlaying = -1;
+    public String genre="";
+   public String subGenre="";
 
     protected MusicDB(){
         allMusics.add(new Music(0,R.raw.kda,"POP","TOP","Kaleo0","Gaur1"));
@@ -25,6 +27,12 @@ public class MusicDB {
         myFavorite.add(4);
     }
 
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+    public void setSubGenre(String subGenre){
+        this.subGenre=subGenre;
+    }
     public static synchronized MusicDB getInstance() {
         if(null == mInstance){
             mInstance = new MusicDB();
