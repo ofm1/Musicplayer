@@ -88,4 +88,8 @@ public class MusicDB {
         }
         return false;
     }
+    public ArrayList<Music> getRandom(){
+
+        return allMusics;
+    }
 }
