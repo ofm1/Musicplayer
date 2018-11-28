@@ -12,13 +12,13 @@ public class MusicDB {
     public int songPlaying = -1;
 
     protected MusicDB(){
-        allMusics.add(new Music(0,R.raw.kaleo,"POP","TOP","Kaleo0","Gaur1"));
-        allMusics.add(new Music(1,R.raw.kaleo,"POP","TOP","Kaleo1","Gaur1",12));
-        allMusics.add(new Music(2,R.raw.kaleo,"POP","INDIE","Kaleo2","Gaur2",1));
-        allMusics.add(new Music(3,R.raw.kaleo,"JAZZ","COOL","Kaleo3","Gaur1",4));
-        allMusics.add(new Music(4,R.raw.kaleo,"JAZZ","COOL","Kaleo4","Gaur2",5));
-        allMusics.add(new Music(5,R.raw.kaleo,"JAZZ","DARK","Kaleo5","Gaur1",6));
-        allMusics.add(new Music(6,R.raw.kaleo,"POP","TOP","Kaleo6","Gaur2",10));
+        allMusics.add(new Music(0,R.raw.kda,"POP","TOP","Kaleo0","Gaur1"));
+        allMusics.add(new Music(1,R.raw.kda,"POP","TOP","Kaleo1","Gaur1",12));
+        allMusics.add(new Music(2,R.raw.kda,"POP","INDIE","Kaleo2","Gaur2",1));
+        allMusics.add(new Music(3,R.raw.kda,"JAZZ","COOL","Kaleo3","Gaur1",4));
+        allMusics.add(new Music(4,R.raw.kda,"JAZZ","COOL","Kaleo4","Gaur2",5));
+        allMusics.add(new Music(5,R.raw.kda,"JAZZ","DARK","Kaleo5","Gaur1",6));
+        allMusics.add(new Music(6,R.raw.kda,"POP","TOP","Kaleo6","Gaur2",10));
 
         myFavorite.add(1);
         myFavorite.add(2);
