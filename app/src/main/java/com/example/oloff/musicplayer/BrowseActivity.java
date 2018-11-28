@@ -85,6 +85,8 @@ public class BrowseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browse);
 
+        setTitle("Browse");
+
         mAllSongs = (Button) findViewById(R.id.allSongs);
 
         mAllSongs.setOnClickListener(new View.OnClickListener() {
