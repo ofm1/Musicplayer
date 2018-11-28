@@ -88,6 +88,7 @@ public class MusicListActivity extends AppCompatActivity {
                 } else {
                     if(songChange){
                         playMusic();
+                        songPaucePoint=0;
                     } else {
                         if(!isPaused()){
                             player.pause();
@@ -118,8 +119,8 @@ public class MusicListActivity extends AppCompatActivity {
         super.onResume();
     }
     @Override
-    protected void onPause(){
-        super.onPause();
+    protected void onDestroy(){
+        super.onDestroy();
         MusicDB.getInstance().songPlaying=-1;
         if(player!=null){
             player.release();
