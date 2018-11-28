@@ -14,7 +14,7 @@ public class MusicDB {
    public String subGenre="";
 
     protected MusicDB(){
-        allMusics.add(new Music(0,R.raw.kda,"POP","TOP","Kaleo0","Gaur1"));
+        allMusics.add(new Music(0,R.raw.kda,"Rock","Folk","Kaleo0","Gaur1"));
         allMusics.add(new Music(1,R.raw.kda,"POP","TOP","Kaleo1","Gaur1",12));
         allMusics.add(new Music(2,R.raw.kda,"POP","INDIE","Kaleo2","Gaur2",1));
         allMusics.add(new Music(3,R.raw.kda,"JAZZ","COOL","Kaleo3","Gaur1",4));
